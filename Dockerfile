@@ -1,8 +1,5 @@
-FROM prabha22/ubuntuapache
-
-ADD target/sparkjava-hello-world-1.0.war /var/www/html/
-
-CMD apachectl -D FOREGROUND
-#CMD service apache2 restart
-
-
+FROM prabha22/latestom
+ADD target/jenkins.war /usr/local/tomcat/webapps
+WORKDIR /usr/local/tomcat/bin
+RUN ./startup.sh
+EXPOSE 8080
